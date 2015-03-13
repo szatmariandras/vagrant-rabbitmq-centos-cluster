@@ -6,6 +6,7 @@ Creates a two-node cluster of RabbitMQ 3.5.0 with CentOS 6.6.
 
  - vagrant
  - vagrant cachier plugin
+ - vagrant hostmanager plugin
  - puppet, facter
 
 ## Installation
@@ -20,7 +21,7 @@ If you don't have requirements installed yet, you can do it like this:
 
 `brew install caskroom/cask/brew-cask`
 
-### Install VirtualBox, vagrant, vagrant manager and vagrant cachier plugin
+### Install VirtualBox, vagrant, vagrant manager and vagrant cachier and hostmanager plugins
 
 `brew cask install virtualbox`
 
@@ -29,6 +30,8 @@ If you don't have requirements installed yet, you can do it like this:
 `brew cask install vagrant-manager`
 
 `vagrant plugin install vagrant-cachier`
+
+`vagrant plugin install vagrant-hostmanager`
 
 ## Usage
 
