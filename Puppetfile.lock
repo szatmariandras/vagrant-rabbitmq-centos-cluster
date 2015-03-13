@@ -1,0 +1,23 @@
+FORGE
+  remote: https://forgeapi.puppetlabs.com
+  specs:
+    garethr-erlang (0.3.0)
+      puppetlabs-apt (>= 0)
+      puppetlabs-stdlib (>= 0)
+      stahnma-epel (>= 0)
+    nanliu-staging (1.0.3)
+    puppetlabs-apt (1.7.0)
+      puppetlabs-stdlib (>= 2.2.1)
+    puppetlabs-firewall (1.4.0)
+    puppetlabs-rabbitmq (5.1.0)
+      nanliu-staging (< 2.0.0, >= 0.3.1)
+      puppetlabs-apt (< 2.0.0, >= 1.0.0)
+      puppetlabs-stdlib (< 5.0.0, >= 3.0.0)
+    puppetlabs-stdlib (4.5.1)
+    stahnma-epel (1.0.2)
+
+DEPENDENCIES
+  garethr-erlang (>= 0)
+  puppetlabs-firewall (>= 0)
+  puppetlabs-rabbitmq (>= 0)
+
