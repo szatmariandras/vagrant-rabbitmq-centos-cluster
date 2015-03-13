@@ -32,6 +32,8 @@ If you don't have requirements installed yet, you can do it like this:
 
 ## Usage
 
+From the root of this repository, run the following command:
+
 `vagrant up`
 
 Now you have two vagrant boxes, both containing a RabbitMQ node, and the two nodes creating a cluster. You can reach the two machines at `rabbit1.vagrant.local` and `rabbit2.vagrant.local`
