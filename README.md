@@ -49,7 +49,7 @@ Assign elastic IPs to all instances, then create a CNAME for the instances, beca
 Then on each instance, do the following steps:
 ##### 2. Install puppet on the instances
  - needed for run to run puppet installed from rubygems: `sudo sh -c 'echo PATH=$PATH:/usr/local/bin > /etc/profile.d/rubypath.sh'`
- - yum installs puppet 2 and facter 1.6, which is too old for us, so let's install it from rubygems: `gem install puppet`
+ - yum installs puppet 2 and facter 1.6, which is too old for us, so let's install it from rubygems: `sudo gem install puppet`
 
 ##### 3. Install git, and clone this repository
  - `sudo yum install git`
