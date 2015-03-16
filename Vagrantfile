@@ -27,6 +27,7 @@ Vagrant.configure("2") do |config|
       node_config.hostmanager.aliases = node[:hostname]
       
       node_config.vm.provision "puppet" do |puppet|
+#          puppet.options = "--verbose --debug"
           puppet.module_path = "modules"
           
           puppet.facter = {
