@@ -51,6 +51,14 @@ rabbitmq_policy { "ha-all@/":
   },
 }
 
+rabbitmq_plugin {'rabbitmq_federation':
+  ensure => present,
+}
+
+rabbitmq_plugin {'rabbitmq_federation_management':
+  ensure => present,
+}
+
 class { 'firewall': 
   ensure => 'stopped'  
 }
