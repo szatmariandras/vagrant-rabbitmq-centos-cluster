@@ -13,15 +13,15 @@ Creates a two-node cluster of RabbitMQ 3.5.0 with CentOS 6.6.
 
 If you don't have requirements installed yet, you can do it like this:
 
-### Install homebrew
+##### 1. Install homebrew
 
 `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
-### Install homebrew cask
+##### 2. Install homebrew cask
 
 `brew install caskroom/cask/brew-cask`
 
-### Install VirtualBox, vagrant, vagrant manager and vagrant cachier and hostmanager plugins
+##### 3. Install VirtualBox, vagrant, vagrant manager and vagrant cachier and hostmanager plugins
 
 `brew cask install virtualbox`
 
@@ -33,7 +33,7 @@ If you don't have requirements installed yet, you can do it like this:
 
 `vagrant plugin install vagrant-hostmanager`
 
-## Usage
+##### 4. Usage
 
 Clone the repository.
 From the root of this repository, run the following command:
@@ -63,5 +63,5 @@ Subtitue the parameters in the command with the following:
 \#CLUSTER_NODES# will be the comma separated list of the FQDNs of all the servers you want in the cluster, like `rabbitmq-001.your.domain.com,rabbitmq-002.your.domain.com,rabbitmq-003.your.domain.com`. This one will be the same for all the servers
 
  - `sudo -s`
- - as root: `FACTER_nodename=#NODENAME# FACTER_cluster_nodes=#CLUSTER_NODES# /usr/local/bin/puppet apply --modulepath=./modules manifests/default.pp`
+ - as root: `FACTER_nodename=#NODENAME# FACTER_cluster_nodes=#CLUSTER_NODES# puppet apply --modulepath=./modules manifests/default.pp`
 
