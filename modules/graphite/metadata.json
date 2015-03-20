@@ -1,0 +1,84 @@
+{
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat"
+    },
+    {
+      "operatingsystem": "CentOS"
+    },
+    {
+      "operatingsystem": "Scientific"
+    },
+    {
+      "operatingsystem": "Debian"
+    },
+    {
+      "operatingsystem": "Ubuntu"
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": "3.x"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">=2.7.20 <4.0.0"
+    }
+  ],
+  "name": "dwerder-graphite",
+  "version": "5.6.0",
+  "source": "git clone https://github.com/echocat/puppet-graphite.git",
+  "author": "Daniel Werdermann",
+  "license": "Mozilla Public License Version 2.0",
+  "summary": "Graphite Monitoring Module",
+  "description": "This module installs and makes basic configs for graphite, with carbon and whisper",
+  "project_page": "https://github.com/echocat/puppet-graphite",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 3.2.0"
+    }
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "CHANGELOG.md": "831e3e54d2796484cdbb698013916bcd",
+    "Gemfile": "12701df42256cf314e9a8ede1aaf1129",
+    "Gemfile.lock": "397395a840b0b37df759fc52256e440f",
+    "LICENSE": "b8f0e5c64f1455cd12bd227a9d9d43a0",
+    "Modulefile": "9ea86281586607b06442c18ad7a21d6c",
+    "README.md": "d6e5e1b5493faead0135ebf0199ff2e6",
+    "Rakefile": "47a7a31a93f463a90e99c22ae661c5be",
+    "manifests/config.pp": "cafd4450383922fd0c4fdbbd75e994cf",
+    "manifests/config_apache.pp": "f54513f1a862a7ee11a481532b39ab6c",
+    "manifests/config_gunicorn.pp": "d1dde38d3ecf68d9890b2b70672374bf",
+    "manifests/config_nginx.pp": "7d263e898e3643a67de44af12883ada0",
+    "manifests/init.pp": "012dd6008ae655e260748df584c1ee76",
+    "manifests/install.pp": "0dccd03df80d370e67770c54e04f98d8",
+    "manifests/params.pp": "d1a66e4da6526a3afc91c5b1e938720e",
+    "spec/acceptance/class_spec.rb": "1594b8d4a5909633a3f531b7a9387820",
+    "spec/acceptance/nodesets/default.yml": "d3b6e73ad6538a0e0a4c7148d2c0f328",
+    "spec/acceptance/redeclare_spec.rb": "f047ae36f79cf46a53016ace1dbaba06",
+    "spec/spec_helper_acceptance.rb": "e9c8f9dc378efe1eca95ad72b80d6b62",
+    "templates/etc/apache2/ports.conf.erb": "022825fb1efdad933d6e39cc25a943e5",
+    "templates/etc/apache2/sites-available/graphite.conf.erb": "99883e8c7bcf033e5eb2b27425020c13",
+    "templates/etc/gunicorn.d/graphite.erb": "38b6803c309466bc3fb373b1dc97838f",
+    "templates/etc/init.d/carbon-aggregator.erb": "e5b275da4eb6f79ca5e54026b697c3ef",
+    "templates/etc/init.d/carbon-cache.erb": "4c79a3dc5a5b1033abbf7c726f5f0f9c",
+    "templates/etc/init.d/carbon-relay.erb": "d962df2237d8517946f3fff0fdcc03e4",
+    "templates/etc/nginx/sites-available/graphite.erb": "6f35a39a856177e8774787d3add3dc53",
+    "templates/opt/graphite/bin/carbon-logrotate.sh.erb": "7c13f336dd820daada4d1dd2b1b8fb9c",
+    "templates/opt/graphite/conf/aggregation-rules.conf.erb": "85585eb76e450fe6b84af1ecc27d266f",
+    "templates/opt/graphite/conf/blacklist.conf.erb": "f87b715b8bcec486dff5541004b0f767",
+    "templates/opt/graphite/conf/carbon.conf.erb": "18b21fedb41635941902b2197e28e825",
+    "templates/opt/graphite/conf/graphite.wsgi.erb": "4714e01760eaec667ccab3bb747397af",
+    "templates/opt/graphite/conf/relay-rules.conf.erb": "798a56443b90d4de556e98808bda5722",
+    "templates/opt/graphite/conf/storage-aggregation.conf.erb": "d5ca301322b38a2092f9ac564bfdc554",
+    "templates/opt/graphite/conf/storage-schemas.conf.erb": "4bc00354a10ce3285fa3b6d87c3a1a25",
+    "templates/opt/graphite/conf/whitelist.conf.erb": "7fced1ebd8d60d8aaab69e940fe211a1",
+    "templates/opt/graphite/webapp/graphite/custom_auth.py.erb": "9075a769a8bdfc2e841cfb7e5167b668",
+    "templates/opt/graphite/webapp/graphite/local_settings.py.erb": "4372e91ffd53f950fe4ae2643c0a3d29"
+  }
+}

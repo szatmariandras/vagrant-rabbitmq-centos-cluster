@@ -1,0 +1,39 @@
+class { 'erlang': epel_enable => true } ->
+
+class { 'rabbitmq':
+  port                     => '5672',
+  version                  => '3.5.0-1',
+  admin_enable		         => true,
+  config_cluster           => true,
+  cluster_nodes            => split($cluster_nodes, ','),
+  cluster_node_type        => 'disc',
+  erlang_cookie            => 'dfaksdva9sfjlkamdeslofaszpkvawnj3rnbfkvd',
+  wipe_db_on_cookie_change => true,
+  environment_variables    => {
+    'NODENAME' => "rabbit@${nodename}",
+    'RABBITMQ_USE_LONGNAME' => true
+  },
+  config_variables	       => {
+    loopback_users => "[]",
+    disk_free_limit => "{mem_relative, 0.1}",
+    vm_memory_high_watermark => 0.4
+  }
+} ->
+
+rabbitmq_policy { "ha-all@/":
+  pattern    => '.*',
+  priority   => 0,
+  applyto    => 'all',
+  definition => {
+    'ha-mode'      => 'all',
+    'ha-sync-mode' => 'automatic',
+  },
+} ->
+
+rabbitmq_plugin {'rabbitmq_federation':
+  ensure => present,
+} ->
+
+rabbitmq_plugin {'rabbitmq_federation_management':
+  ensure => present,
+}

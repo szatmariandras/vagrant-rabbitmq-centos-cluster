@@ -1,0 +1,1 @@
+config[:datadog][:apikey] = "you_api_key"

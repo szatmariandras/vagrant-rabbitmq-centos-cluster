@@ -1,3 +1,5 @@
 .tmp/
 .vagrant/
 .librarian/
+.idea/
+config.local
