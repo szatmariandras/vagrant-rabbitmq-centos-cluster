@@ -25,10 +25,13 @@ diamond::collector { 'RabbitMQCollector':
   }
 }
 
+Class['diamond::config']
+->
 file { 'diamond-updated-rabbitmq-collector':
   path => '/usr/share/diamond/collectors/rabbitmq/rabbitmq.py',
   source => 'puppet:///modules/kinja-rabbitmq/diamond/collectors/rabbitmq-collector.py',
   owner => 'root',
-  group => 'root',
-  notify => Service['diamond']
+  group => 'root'
 }
+~>
+Class['diamon::service']
