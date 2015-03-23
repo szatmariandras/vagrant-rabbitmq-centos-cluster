@@ -126,7 +126,7 @@ class graphite::params {
         'python-memcached',
         'python-sqlite2',
         'bitmap',
-#        'bitmap-fonts-compat',
+        'bitmap-fonts-compat',
         'python-crypto',
         'pyOpenSSL',
         'python-zope-interface',
