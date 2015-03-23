@@ -2,7 +2,8 @@ class { 'diamond':
   graphite_host => $graphite_host,
   graphite_port => $graphite_port,
   interval      => 10,
-  install_from_pip => true
+  install_from_pip => true,
+  hostname_method => 'hostname_short'
 }
 
 diamond::handler { 'GraphiteHandler':
