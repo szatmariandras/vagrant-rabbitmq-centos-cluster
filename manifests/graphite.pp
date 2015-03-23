@@ -11,12 +11,12 @@ class { 'graphite':
     {
       name       => 'carbon',
       pattern    => '^carbon\.',
-      retentions => '60s:60d'
+      retentions => '60s:7d'
     },
     {
       name       => 'default',
       pattern    => '.*',
-      retentions => '10s:30d,60s:60d'
+      retentions => '10s:4d,60s:7d'
     }
   ],
   gr_blacklist                => [
