@@ -1,6 +1,6 @@
 # What is this?
 
-Creates a two-node cluster of RabbitMQ 3.5.0 with CentOS 6.6.
+Creates a two-node cluster of RabbitMQ 3.5.0 with CentOS 6.6, including monitoring to Graphite and Datadog.
 
 ## Requirements
 
@@ -36,6 +36,7 @@ If you don't have requirements installed yet, you can do it like this:
 ##### 4. Usage
 
 Clone the repository.
+Change the default config if you need: copy `config.local.example` as `config.example`, and update the config values you can see in `Vagrantfile`.
 From the root of this repository, run the following command:
 
 `vagrant up`
@@ -56,12 +57,20 @@ Then on each instance, do the following steps:
  - clone this repository somewhere, like `~/puppet`
 
 ##### 4. From the root of the repository, apply puppet manifest to the server
-Subtitue the parameters in the command with the following:
-
-\#NODENAME# will be the FQDN of the server, the CNAME you gave it in first step, like `rabbitmq-001.your.domain.com`. This one will vary from server to server.
-
-\#CLUSTER_NODES# will be the comma separated list of the FQDNs of all the servers you want in the cluster, like `rabbitmq-001.your.domain.com,rabbitmq-002.your.domain.com,rabbitmq-003.your.domain.com`. This one will be the same for all the servers
 
  - `sudo -s`
- - as root: `FACTER_nodename=#NODENAME# FACTER_cluster_nodes=#CLUSTER_NODES# puppet apply --modulepath=./modules manifests/default.pp`
 
+Parameterize the command using the following parameters. All parameters must passed before the `puppet` command with `FACTER_` prefix. For example:
+
+ - `FACTER_nodename=#NODENAME# FACTER_cluster_nodes=#CLUSTER_NODES# puppet apply --modulepath=./modules manifests/default.pp`
+
+The following parameters exist:
+
+ - nodename: the FQDN of the server, the CNAME you gave it in first step, like `rabbitmq-001.your.domain.com`. This one will vary from server to server.
+ - cluster_nodes: the comma separated list of the FQDNs of all the servers you want in the cluster, like `rabbitmq-001.your.domain.com,rabbitmq-002.your.domain.com,rabbitmq-003.your.domain.com`. This one will be the same for all the servers.
+ - install_graphite (optional): pass `true` to install Graphite on the current server
+ - monitor_to_graphite (optional): pass `true` to enable monitoring to Graphite
+ - graphite_host (optional): if monitoring to Graphite enabled, pass the host name of Graphite server to report stats to (if use passed `true` as `install_graphite`, it will be the current hostname)
+ - graphite_post (optional): if monitoring to Graphite enabled, pass the port of the Graphite server (if you installed Graphite with this repo, you want to pass `2003` here)
+ - datadog_enabled (optional): pass `true`, if you want to enable reporting to [DataDog](https://www.datadoghq.com/)
+ - datadog_api_key optional): if `datadog_enabled` is `true`, pass here your DataDog API key.
