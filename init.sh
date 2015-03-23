@@ -78,4 +78,7 @@ export PATH=$PATH:/usr/local/bin
 echo "Installing puppet..."
 gem install puppet
 
-FACTER_nodename=$nodename FACTER_cluster_nodes=$cluster_nodes FACTER_install_graphite=$install_graphite FACTER_monitor_to_graphite=$monitor_to_graphite FACTER_graphite_host=$graphite_host FACTER_graphite_port=$graphite_port FACTER_datadog_enabled=$datadog_enabled FACTER_datadog_api_key=$datadog_api_key puppet apply --modulepath=./modules manifests/default.pp
+command="FACTER_operatingsystemrelease=6.5 FACTER_nodename=$nodename FACTER_cluster_nodes=$cluster_nodes FACTER_install_graphite=$install_graphite FACTER_monitor_to_graphite=$monitor_to_graphite FACTER_graphite_host=$graphite_host FACTER_graphite_port=$graphite_port FACTER_datadog_enabled=$datadog_enabled FACTER_datadog_api_key=$datadog_api_key puppet apply --modulepath=./modules manifests/default.pp"
+echo "Running command:"
+echo $command
+eval $command
