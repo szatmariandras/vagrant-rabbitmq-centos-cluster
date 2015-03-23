@@ -59,6 +59,11 @@ Then on each instance, do the following steps:
 ##### 4. From the root of the repository, apply puppet manifest to the server
 
  - `sudo -s`
+ - `./init.sh`
+ 
+Just enter the values for the parameters, and puppet will handle to others. You can see some additional description on the parameters below.
+
+##### You can also run puppet manually, if you prefer entering 500 character long commands:
 
 Parameterize the command using the following parameters. All parameters must passed before the `puppet` command with `FACTER_` prefix. For example:
 
@@ -71,6 +76,6 @@ The following parameters exist:
  - install_graphite (optional): pass `true` to install Graphite on the current server
  - monitor_to_graphite (optional): pass `true` to enable monitoring to Graphite
  - graphite_host (optional): if monitoring to Graphite enabled, pass the host name of Graphite server to report stats to (if use passed `true` as `install_graphite`, it will be the current hostname)
- - graphite_post (optional): if monitoring to Graphite enabled, pass the port of the Graphite server (if you installed Graphite with this repo, you want to pass `2003` here)
+ - graphite_port (optional): if monitoring to Graphite enabled, pass the port of the Graphite server (if you installed Graphite with this repo, you want to pass `2003` here)
  - datadog_enabled (optional): pass `true`, if you want to enable reporting to [DataDog](https://www.datadoghq.com/)
  - datadog_api_key optional): if `datadog_enabled` is `true`, pass here your DataDog API key.
