@@ -43,31 +43,21 @@ From the root of this repository, run the following command:
 
 Now you have two vagrant boxes, both containing a RabbitMQ node, and the two nodes creating a cluster. You can reach the two machines at `rabbit1.vagrant.local` and `rabbit2.vagrant.local`
 
-## Installing a cluster of Amazon Linux nodes on EC2
+## Installing a cluster of nodes on EC2
 
-##### 1. Create the instances
+##### 1. Create the instances (don't use Amazon Linux, use Cent OS 6.6 instead)
 Assign elastic IPs to all instances, then create a CNAME for the instances, because the IP or the Public DNS, which also contains the ip is harder to manage or just keep in mind.
 Then on each instance, do the following steps:
-##### 2. Install puppet on the instances
- - needed for run to run puppet installed from rubygems: `sudo sh -c 'echo PATH=$PATH:/usr/local/bin > /etc/profile.d/rubypath.sh'`
- - yum installs puppet 2 and facter 1.6, which is too old for us, so let's install it from rubygems: `sudo gem install puppet`
 
-##### 3. Install git, and clone this repository
+##### 2. Install git (if not installed yet), and clone this repository
  - `sudo yum install git`
  - clone this repository somewhere, like `~/puppet`
 
-##### 4. From the root of the repository, apply puppet manifest to the server
+##### 3. From the root of the repository, apply puppet manifest to the server
 
- - `sudo -s`
  - `./init.sh`
  
 Just enter the values for the parameters, and puppet will handle to others. You can see some additional description on the parameters below.
-
-##### You can also run puppet manually, if you prefer entering 500 character long commands:
-
-Parameterize the command using the following parameters. All parameters must passed before the `puppet` command with `FACTER_` prefix. For example:
-
- - `FACTER_nodename=#NODENAME# FACTER_cluster_nodes=#CLUSTER_NODES# puppet apply --modulepath=./modules manifests/default.pp`
 
 The following parameters exist:
 
