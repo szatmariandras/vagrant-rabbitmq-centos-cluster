@@ -34,4 +34,4 @@ file { 'diamond-updated-rabbitmq-collector':
   group => 'root'
 }
 ~>
-Class['diamon::service']
+Class['diamond::service']
