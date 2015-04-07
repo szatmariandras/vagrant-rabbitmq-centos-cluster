@@ -46,6 +46,8 @@ install_graphite=$?
 if [[ $install_graphite -eq 0 ]]
 then
     install_graphite="true"
+else
+    install_graphite="false"
 fi
 
 ask "Would you like to monitor RabbitMQ data to Graphite?" Y;
@@ -57,6 +59,7 @@ then
     read -e -p "Graphite port to report: " graphite_port
     monitor_to_graphite="true"
 else
+    monitor_to_graphite="false"
     graphite_host=""
     graphite_port=0
 fi
@@ -69,6 +72,7 @@ then
     datadog_enabled="true"
     read -e -p "Datadog API key: " datadog_api_key
 else
+    datadog_enabled="false"
     datadog_api_key=""
 fi
 
