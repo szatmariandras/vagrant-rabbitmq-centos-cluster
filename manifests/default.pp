@@ -9,14 +9,8 @@ class { 'firewall':
 
 import 'rabbitmq.pp'
 
-if ($datadog_enabled == "true") {
-  import 'datadog.pp'
-}
+import 'datadog.pp'
 
-if ($monitor_to_graphite == "true") {
-  import 'diamond.pp'
-}
+import 'diamond.pp'
 
-if ($install_graphite == "true") {
-  import 'graphite.pp'
-}
+import 'graphite.pp'

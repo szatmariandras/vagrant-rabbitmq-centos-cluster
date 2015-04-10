@@ -2,7 +2,7 @@
 
 config = {
     :datadog => {
-        :enabled => true,
+        :enabled => false,
         :apikey => ''
     },
     :graphite_host => 'rabbit1.vagrant.local',
@@ -12,13 +12,13 @@ config = {
         {
             :hostname => 'rabbit1.vagrant.local',
             :ip => '192.168.0.101',
-            :monitor_to_graphite => true,
-            :install_graphite => true
+            :monitor_to_graphite => false,
+            :install_graphite => false
         },
         {
             :hostname => 'rabbit2.vagrant.local',
             :ip => '192.168.0.102',
-            :monitor_to_graphite => true
+            :monitor_to_graphite => false
         }
     ]
 }
@@ -53,7 +53,7 @@ Vagrant.configure("2") do |provisioner|
       node_config.vm.provision "puppet" do |puppet|
           puppet.options = "--verbose --debug"
           puppet.module_path = "modules"
-          
+
           puppet.facter = {
             "nodename"            => node[:hostname],
             "cluster_nodes"       => config[:cluster_nodes],

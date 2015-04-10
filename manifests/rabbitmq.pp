@@ -2,7 +2,7 @@ class { 'erlang': epel_enable => true } ->
 
 class { 'rabbitmq':
   port                     => '5672',
-  version                  => '3.5.0-1',
+  version                  => '3.5.1-1',
   admin_enable		         => true,
   config_cluster           => true,
   cluster_nodes            => split($cluster_nodes, ','),
